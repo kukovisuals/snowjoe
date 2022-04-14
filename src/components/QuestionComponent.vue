@@ -2,7 +2,7 @@
   <div class="quiz_questions_container" >
     
     <SingleQuestion :quizData="$store.state.questions" />  
-    <button>Submit</button>
+    
       
   </div>
 </template>

@@ -24,7 +24,6 @@ export default {
     QuestionComponent
   },
   props: {
-    data: Object,
     title: String
   }
 }

@@ -7,8 +7,9 @@ export const store = createStore({
   state: {
       questions,
       storeObj: {},
-      // finalAnswers: [],
-      index: '0'
+      index: '0',
+      len: 0,
+      quizLen : questions.length
   },
   mutations: {
     answersArray(state,payload){
@@ -21,6 +22,7 @@ export const store = createStore({
       } 
       state.storeObj[key].push(value)
       
+      state.len = Object.values(state.storeObj).length
     }
   }
 })
