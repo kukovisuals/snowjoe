@@ -1,5 +1,5 @@
 <template>
-  <QuizComponent title="Quiz 1 - HTML /CSS / JS Practice"/>
+  <QuizComponent title="Quiz 1 - Science: Computers"  />
 </template>
 
 <script>

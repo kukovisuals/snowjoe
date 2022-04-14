@@ -7,10 +7,8 @@
     </div>
 
     <QuestionComponent 
-      questionTitle="Who is the best visual artist in NYC?"
-      questions="Freddy"
+    
     />
-
 
   </div>
 </template>

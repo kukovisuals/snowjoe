@@ -1,23 +1,23 @@
 <template>
-  <div class="quiz_questions_container">
-  
-    <div class="question_title">
-      <p>{{questionTitle}}</p>
-    </div>
-
-    <div class="question_answers">
-      <li> {{questions}} </li>
-    </div>
-
+  <div class="quiz_questions_container" >
+    
+    <SingleQuestion :quizData="$store.state.questions" />  
+    <button>Submit</button>
+      
   </div>
 </template>
 
 <script>
+// import {mapMutations} from 'vuex';
+import SingleQuestion from './SingleQuestion';
+
 export default {
   name: 'QuestionComponent',
+  components: {
+    SingleQuestion
+  },
   props:{
-    questionTitle: String,
-    questions: String
+    questions: Object
   }
 }
 </script>
