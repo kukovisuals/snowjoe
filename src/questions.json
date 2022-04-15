@@ -24,6 +24,102 @@
 "The Orange Router",
 "The Ominous Router"
 ]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "What was the first commerically available computer processor?",
+"correct_answer": "Intel 4004",
+"incorrect_answers": [
+"Intel 486SX",
+"TMS 1000",
+"AMD AM386"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "What does the acronym CDN stand for in terms of networking?",
+"correct_answer": "Content Delivery Network",
+"incorrect_answers": [
+"Content Distribution Network",
+"Computational Data Network",
+"Compressed Data Network"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "How many cores does the Intel i7-6950X have?",
+"correct_answer": "10",
+"incorrect_answers": [
+"12",
+"8",
+"4"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
+"correct_answer": "&lt;marquee&gt;&lt;/marquee&gt;",
+"incorrect_answers": [
+"&lt;scroll&gt;&lt;/scroll&gt;",
+"&lt;move&gt;&lt;/move&gt;",
+"&lt;slide&gt;&lt;/slide&gt;"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "What is the correct term for the metal object in between the CPU and the CPU fan within a computer system?",
+"correct_answer": "Heat Sink",
+"incorrect_answers": [
+"CPU Vent",
+"Temperature Decipator",
+"Heat Vent"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "Which of these people was NOT a founder of Apple Inc?",
+"correct_answer": "Jonathan Ive",
+"incorrect_answers": [
+"Steve Jobs",
+"Ronald Wayne",
+"Steve Wozniak"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "What does the term MIME stand for, in regards to computing?",
+"correct_answer": "Multipurpose Internet Mail Extensions",
+"incorrect_answers": [
+"Mail Internet Mail Exchange",
+"Multipurpose Interleave Mail Exchange",
+"Mail Interleave Method Exchange"
+]
+},
+{
+"category": "Science: Computers",
+"type": "multiple",
+"difficulty": "medium",
+"question": "What does RAID stand for?",
+"correct_answer": "Redundant Array of Independent Disks",
+"incorrect_answers": [
+"Rapid Access for Indexed Devices",
+"Range of Applications with Identical Designs",
+"Randomized Abstract Identification Description"
+]
 }
 ]
 }

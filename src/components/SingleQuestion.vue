@@ -133,15 +133,16 @@ export default {
         const lower = 4 * key
         const upper = lower + 5
 
-        if(this.$store.state.len === this.$store.state.quizLen){
-          // console.log('err,', this.$store.state.questions[key].correct_answer)
+        if((this.$store.state.len === this.$store.state.quizLen) && (this.$store.state.len > key)){
+          console.log('err,', this.$store.state.len, key)
           if(this.$store.state.questions[key].correct_answer === this.$store.state.storeObj[key][0]){
             
             el.classList.add("gotCorrect");
-
             el.children[0].lastChild.innerHTML = 'Correct'
             el.children[0].lastChild.classList.add('correct')
+
           } else {
+
             el.children[0].lastChild.innerHTML = 'Wrong'
             el.children[0].lastChild.classList.add('wrong')
             el.classList.add("gotWrong");

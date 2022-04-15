@@ -159,7 +159,7 @@ export default {
   border: 1px solid darkgreen;
   background-color: seagreen;
   color: white;
-  height: 8vw;
+  height: 11vw;
   padding-left: 3vw;
   margin-left: -4vw;
   border-radius: 2vw;

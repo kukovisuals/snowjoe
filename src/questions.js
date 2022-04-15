@@ -25,7 +25,7 @@ const questions = (d) =>{
 		
 		quiz.push({...obj})
 	}
-	console.log(quiz)
+	// console.log(quiz)
 	
 	return quiz
 }
