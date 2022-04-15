@@ -7,7 +7,8 @@ export const store = createStore({
   state: {
       questions,
       storeObj: {},
-      index: '0',
+      gotRight: 0,
+      gotWrong: 0,
       len: 0,
       quizLen : questions.length
   },
@@ -15,7 +16,7 @@ export const store = createStore({
     answersArray(state,payload){
       const {key, value} = payload
       // console.log(payload, 'vue')
-      state.index = key
+      
       if(!state.storeObj[key]) state.storeObj[key] = []
       if(state.storeObj[key].length > 0){
         state.storeObj[key].pop()
@@ -23,6 +24,16 @@ export const store = createStore({
       state.storeObj[key].push(value)
       
       state.len = Object.values(state.storeObj).length
+    }, 
+    resultsRatio(state){
+      for(const i in state.questions){
+        // console.log('iii',state.questions[i].correct_answer,  state.storeObj[i][0] )
+        if(state.questions[i].correct_answer === state.storeObj[i][0]){
+          state.gotRight ++
+        } else {
+          state.gotWrong ++
+        }
+      }
     }
   }
 })

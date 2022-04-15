@@ -2,8 +2,8 @@
   <FixedBanner/>
   <div class="quiz_container">
 
-    <div class="quiz_title">
-      <h1> {{title}} </h1>
+    <div class="quiz_title_component">
+      <h4 class="quiz_title"> {{title}} </h4>
     </div>
 
     <QuestionComponent 
@@ -32,7 +32,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
+.quiz_title{
+  line-height: 5vw;
+  padding-top: 3vw;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 5vw;
+}
 ul {
   list-style-type: none;
   padding: 0;

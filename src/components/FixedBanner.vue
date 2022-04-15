@@ -1,6 +1,6 @@
 <template>
   <div class="fixed_banner">
-    <p>Quiz Application</p>
+    <h4 class="banner">Quiz Application</h4>
   </div>
 </template>
 
@@ -12,11 +12,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>  
+.banner{
 
-.fixed_banner{
-  background-color: red;
 }
-.fixed_banner p{
+.fixed_banner{
+  background-color: #781616;
+}
+.banner{
+  padding: 4vw 10vw;
   color: #FFFFFF;
+  font-size: 4vw;
 }
 </style>
