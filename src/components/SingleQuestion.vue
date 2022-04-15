@@ -16,8 +16,7 @@
           class="answers" 
           v-for="(choice) in quiz.choices"
           :key="choice"
-        >
-          
+        >    
           <label 
           class="answer"
           >  
@@ -35,25 +34,17 @@
             
           </label>
        
-
         </div>
         <div v-if="buttonClicked" class="rightWrong">
-          <div v-if="isRight">
-            <p> Correct </p>
-          </div>
-          <div v-if="!isRight">
-            <p>Wrong</p>
-          </div>
+
+            <p class="correct" v-if="isRight"> Correct </p>
+
+            <p class="wrong" v-else>Wrong</p>
+
         </div >
       </form>
-
-
-      
-     
-       
     </div>
   
-
     <div class="button_container">
       <button class="submit_button" @click="buttonTriggered">Submit</button>
     </div>
@@ -85,6 +76,7 @@ export default {
       resultColor: 'gray',
       getIndex: 0,
       isRight: false,
+      isWrong: false,
       diff: [],
      }
   },
@@ -152,10 +144,12 @@ export default {
             
             el.classList.add("gotCorrect");
             this.isRight = true
+            this.isWrong = false
 
           } else {
             el.classList.add("gotWrong");
             this.isRight = false
+            this.isWrong = true
 
             const newReferenceAnswers = loopAnswers.slice(lower, upper)
             
@@ -177,174 +171,4 @@ export default {
 }
 
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>  
-.question_answers{
-  width: 90%;
-  margin: 0 auto;
-  background-color: #FFFFFF ;
-  box-shadow: -0.5vw 0.5vw 2vw gray;
-  /*border: 1px solid black;*/
-  border-radius: 4%;
-  margin-top: 5vw;
-}
-.question_answers.active{
-  box-shadow: -0.5vw 0.5vw 2vw #BDAB1D;
-  
-}
-.question_answers.gotCorrect{
-  box-shadow: -0.5vw 0.5vw 2vw green;
-}
-.question_answers.gotWrong{
-  box-shadow: -0.5vw 0.5vw 2vw red;
-}
-.question{
-  /*border: 1px solid blue;*/
-  padding: 5vw 6vw 4vw 7vw;
-  font-size: 3.9vw;
-}
-.answers{
-  padding-left: 12vw;
-  padding-bottom: 2.5vw;
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-}
-.answers:last-child .answer{
-  margin-bottom: 4vw;
-}
-
-
-
-.answer{
-  /*padding-left: 2.6vw;*/
-  font-size: 3.9vw;
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  /*margin: 2vw 0;*/
-  cursor: pointer;
-  position: relative;
-}
-.answer.active{
-  border: 1px solid darkgreen;
-  background-color: seagreen;
-  color: white;
-  height: 8vw;
-  padding-left: 3vw;
-  margin-left: -4vw;
-  border-radius: 2vw;
-}
-.radio_input{
-  opacity: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-.design{
-  width: 3vw;
-  height: 3vw;
-
-  border: 1px solid #000000;
-  border-radius: 100%;
-  margin-right: 2vw;
-
-  position: absolute;
-}
-
-.design::before,
-.design::after {
-  content: "";
-  display: block;
-
-  width: inherit;
-  height: inherit;
-
-  border-radius: inherit;
-
-  position: absolute;
-  transform: scale(0);
-  transform-origin: center center;
-}
-
-.design:before {
-  background: blue;
-  opacity: 0;
-  transition: .3s;
-}
-
-.design::after {
-  background: blue;
-  opacity: .4;
-  transition: .6s;
-}
-/* .text */
-.text {
-  color: inherit;
-  /*font-weight: bold;*/
-  margin-left: 7vw;
-}
-
-
-/* checked state */
-input:checked+.design::before {
-  opacity: 1;
-  transform: scale(.6);
-}
-
-
-/* other states */
-/*input:hover+.design,*/
-input:focus+.design {
-  border: 1px solid blue;
-}
-
-/*input:hover+.design:before,*/
-input:focus+.design:before {
-  background: blue;
-}
-
-/*input:hover~.text {
-  color: blue;
-}*/
-
-input:focus+.design::after,
-input:active+.design::after {
-  opacity: .1;
-  transform: scale(1);
-}
-
-
-.button_container{
-  padding: 5vw;
-  width: 16%;
-  margin: 0 auto;
-}
-.submit_button{
-  background-color: #417310;
-  border: 1px solid black;
-  width: 16vw;
-  height: 7vw;
-  color: #FFF;
-  cursor: pointer;
-}
-
-
-
-.rightWrong{
-  float: right;
-  top: -6vw;
-  position: relative;
-  right: 3vw;
-}
-</style>
-
 

@@ -32,18 +32,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>  
-
-.results_container{
-  width: 43%;
-  margin: 0 auto;
-  font-size: 3.5vw;
-  padding-top: 4vw;
-  text-align: center;
-}
-.percentage{
-  font-size: 4vw;
-  color: red;
-}
-</style>

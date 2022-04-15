@@ -3,12 +3,10 @@
     
     <SingleQuestion :quizData="$store.state.questions" />  
     
-      
   </div>
 </template>
 
 <script>
-// import {mapMutations} from 'vuex';
 import SingleQuestion from './SingleQuestion';
 
 export default {
@@ -22,8 +20,3 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>  
-
-
-</style>

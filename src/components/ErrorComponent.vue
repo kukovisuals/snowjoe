@@ -16,16 +16,3 @@ export default {
   name: 'ErrorComponent',
 }
 </script>
-
-<style scoped> 
-.error_container{
-  width: 80%;
-  margin: 0 auto;
-} 
-.error_message{
-  color:  #fa1800;
-  text-align: center;
-  padding-bottom: 10vw;
-}
-
-</style>
