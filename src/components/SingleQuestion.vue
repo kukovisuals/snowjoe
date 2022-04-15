@@ -37,12 +37,18 @@
        
 
         </div>
+        <div v-if="buttonClicked" class="rightWrong">
+          <div v-if="isRight">
+            <p> Correct </p>
+          </div>
+          <div v-if="!isRight">
+            <p>Wrong</p>
+          </div>
+        </div >
       </form>
 
 
-      <div v-if="buttonClicked" class="rightWrong">
-          <p  ref="correct_p"> </p>
-      </div >
+      
      
        
     </div>
@@ -141,21 +147,16 @@ export default {
         const upper = lower + 5
 
         if(this.$store.state.len === this.$store.state.quizLen){
-          
+          console.log('err,', this.$store.state.questions[key].correct_answer)
           if(this.$store.state.questions[key].correct_answer === this.$store.state.storeObj[key][0]){
             
             el.classList.add("gotCorrect");
             this.isRight = true
 
-            this.$refs.correct_p.innerHTML = 'Correct'
-            console.log('Rite', this.$refs.correct_p[key] );
           } else {
             el.classList.add("gotWrong");
-            // this.$refs.wrong_p.value = 'Wrong'
             this.isRight = false
 
-            this.$refs.correct_p.innerHTML = 'Wrong'
-            console.log('wrong', this.$refs.correct_p[key] );
             const newReferenceAnswers = loopAnswers.slice(lower, upper)
             
             for(const reference of newReferenceAnswers){
@@ -231,9 +232,13 @@ export default {
   position: relative;
 }
 .answer.active{
-  border: 1px solid darkseagreen;
+  border: 1px solid darkgreen;
   background-color: seagreen;
   color: white;
+  height: 8vw;
+  padding-left: 3vw;
+  margin-left: -4vw;
+  border-radius: 2vw;
 }
 .radio_input{
   opacity: 0;

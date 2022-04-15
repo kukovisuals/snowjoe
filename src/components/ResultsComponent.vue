@@ -21,11 +21,11 @@ export default {
     percentageResult(){
       let percent = 0
       let answer = 0
-      percent = this.$store.state.gotRight / this.$store.state.len
+      percent = (this.$store.state.gotRight / this.$store.state.len ) * 100
       if (Number.isInteger(percent)) {
-        answer = percent
+        answer = percent.toFixed(0)
       } else {
-        answer = (percent * 100).toFixed(2)
+        answer = (percent).toFixed(2)
       }
       return answer
     }
