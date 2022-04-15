@@ -36,11 +36,7 @@
        
         </div>
         <div v-if="buttonClicked" class="rightWrong">
-
-            <p class="correct" v-if="isRight"> Correct </p>
-
-            <p class="wrong" v-else>Wrong</p>
-
+            <p id="yesno"> </p>
         </div >
       </form>
     </div>
@@ -75,8 +71,7 @@ export default {
       buttonClicked: false,
       resultColor: 'gray',
       getIndex: 0,
-      isRight: false,
-      isWrong: false,
+
       diff: [],
      }
   },
@@ -105,11 +100,11 @@ export default {
       
       let unAnswered = this.difference(new Set(a), new Set(b))
       
-      console.log(a,b, unAnswered)
+      // console.log(a,b, unAnswered)
     
       this.diff = unAnswered
 
-      console.log('dif', this.diff)
+      // console.log('dif', this.diff)
       return this.diff
     },
     difference(setA, setB) {
@@ -139,23 +134,24 @@ export default {
         const upper = lower + 5
 
         if(this.$store.state.len === this.$store.state.quizLen){
-          console.log('err,', this.$store.state.questions[key].correct_answer)
+          // console.log('err,', this.$store.state.questions[key].correct_answer)
           if(this.$store.state.questions[key].correct_answer === this.$store.state.storeObj[key][0]){
             
             el.classList.add("gotCorrect");
-            this.isRight = true
-            this.isWrong = false
 
+            el.children[0].lastChild.innerHTML = 'Correct'
+            el.children[0].lastChild.classList.add('correct')
           } else {
+            el.children[0].lastChild.innerHTML = 'Wrong'
+            el.children[0].lastChild.classList.add('wrong')
             el.classList.add("gotWrong");
-            this.isRight = false
-            this.isWrong = true
+
 
             const newReferenceAnswers = loopAnswers.slice(lower, upper)
             
             for(const reference of newReferenceAnswers){
               if(reference.value === this.$store.state.correctObj[key]){
-                console.log('submit', reference.parentNode)
+                // console.log('submit', reference.parentNode)
                 reference.parentNode.classList.add('active')
               }
               
