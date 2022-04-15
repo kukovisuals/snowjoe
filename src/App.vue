@@ -114,14 +114,14 @@ export default {
   margin-top: 5vw;
 }
 .question_answers.active{
-  box-shadow: -0.5vw 0.5vw 2vw #BDAB1D;
+  border: 1px solid #BDAB1D;
   
 }
 .question_answers.gotCorrect{
-  box-shadow: -0.5vw 0.5vw 2vw green;
+  border: 1px solid green;
 }
 .question_answers.gotWrong{
-  box-shadow: -0.5vw 0.5vw 2vw red;
+  border: 1px solid red;
 }
 .question{
   /*border: 1px solid blue;*/
@@ -367,10 +367,10 @@ input:active+.design::after {
     margin-bottom: 1.5vw;
   }
   .results_container{
-    font-size: 2.5vw;
+    font-size: 1vw;
   }
   .percentage{
-    font-size: var(--desktop-font-size);
+    font-size: 1.5vw;
   }
   .answer.active{
     height: 2.5vw;
