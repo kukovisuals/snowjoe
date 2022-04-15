@@ -6,6 +6,7 @@ import questions from './questions.js';
 export const store = createStore({
   state: {
       questions,
+      correctObj: {},
       storeObj: {},
       gotRight: 0,
       gotWrong: 0,
@@ -27,6 +28,7 @@ export const store = createStore({
     }, 
     resultsRatio(state){
       for(const i in state.questions){
+        state.correctObj[i] = state.questions[i].correct_answer
         // console.log('iii',state.questions[i].correct_answer,  state.storeObj[i][0] )
         if(state.questions[i].correct_answer === state.storeObj[i][0]){
           state.gotRight ++

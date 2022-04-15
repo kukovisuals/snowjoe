@@ -21,7 +21,8 @@
           <label 
           class="answer"
           >  
-            <input 
+            <input
+              ref="myChoice"  
               class="radio_input" 
               type="radio"  
               name="choice"
@@ -38,12 +39,11 @@
         </div>
       </form>
 
-      <BottomRight>
-        <div class="rightWrong">
-          <p>{{right}}  </p>
-        </div >
-      </BottomRight> 
-      
+
+      <div v-if="buttonClicked" class="rightWrong">
+          <p  ref="correct_p"> </p>
+      </div >
+     
        
     </div>
   
@@ -61,14 +61,14 @@
 <script>
 import ErrorComponent from './ErrorComponent.vue';
 import ResultsComponent from './ResultsComponent.vue';
-import BottomRight from './BottomRight.vue';
+// import BottomRight from './BottomRight.vue';
 
 export default {
   name: 'SingleQuestion',
   components: {
     ErrorComponent,
     ResultsComponent,
-    BottomRight
+    // BottomRight
   },
   props: {
     quizData: Object
@@ -78,16 +78,11 @@ export default {
       buttonClicked: false,
       resultColor: 'gray',
       getIndex: 0,
-      isActive: false,
       isRight: false,
       diff: [],
      }
   },
-  computed:{
-    right(){
-      return this.isRight ? 'correct' : 'wrong' 
-    }
-  },
+ 
   methods: {
     // we need to add the obj[index] = choice
     // if is the same index don't push more just change the value
@@ -130,32 +125,52 @@ export default {
       const childs = Object.entries(e.target.children)
       const objLen = Object.keys(this.$store.state.storeObj)
 
+      const loopAnswers = this.$refs.myChoice
+
       if(objLen.length > 0){
         this.$store.commit('resultsRatio')
       }
       
-
+      
       for(const [key, el] of childs){
         if(this.diff.has(key)){
           el.classList.add("active");
         }
-        console.log('submit', childs.length, this.$store.state.len)
-      
+        
+        const lower = 4 * key
+        const upper = lower + 5
+
         if(this.$store.state.len === this.$store.state.quizLen){
           
           if(this.$store.state.questions[key].correct_answer === this.$store.state.storeObj[key][0]){
             
             el.classList.add("gotCorrect");
             this.isRight = true
-            console.log('write',el, this.isRight);
+
+            this.$refs.correct_p.innerHTML = 'Correct'
+            console.log('Rite', this.$refs.correct_p[key] );
           } else {
             el.classList.add("gotWrong");
+            // this.$refs.wrong_p.value = 'Wrong'
             this.isRight = false
-            console.log('wrong',el, this.isRight);
+
+            this.$refs.correct_p.innerHTML = 'Wrong'
+            console.log('wrong', this.$refs.correct_p[key] );
+            const newReferenceAnswers = loopAnswers.slice(lower, upper)
+            
+            for(const reference of newReferenceAnswers){
+              if(reference.value === this.$store.state.correctObj[key]){
+                console.log('submit', reference.parentNode)
+                reference.parentNode.classList.add('active')
+              }
+              
+            }
+            
           }
           
         }
       }
+
     }
   }
 }
@@ -214,6 +229,11 @@ export default {
   /*margin: 2vw 0;*/
   cursor: pointer;
   position: relative;
+}
+.answer.active{
+  border: 1px solid darkseagreen;
+  background-color: seagreen;
+  color: white;
 }
 .radio_input{
   opacity: 0;
