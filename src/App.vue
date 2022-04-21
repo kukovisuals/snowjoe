@@ -20,6 +20,8 @@ export default {
 :root {
   --app-background-color:#F4F6F8;
   --app-color: #2C3F51;
+  --radial-background-color: #0186F5;
+  --submit-button-background-color: #1C590B;
 
   --main-font-size: 3vw;
   --fixed-banner-Background: #870607;
@@ -40,9 +42,10 @@ export default {
   --table-question-font-size: 2.3vw;
   --table-question-answers-box-shadow:-0.1vw 0.2vw 0.5vw #B3B3B3;
 
-  --desktop-fixed-banner-title: 4vw;
-  --desktop-font-size: 2.8vw;
-  --desktop-question-font-size: 1.5vw;
+  --desktop-fixed-banner-title: 1vw;
+  --desktop-font-size: 2.1vw;
+  --desktop-question-font-size: 1.2vw;
+  --desktop-text-font-size: 1.1vw;
   --desktop-quesiton-answers-margin: 0 auto;
   --desktop-box-shadow: 0vw 0.2vw 0.3vw #B3B3B3;
 }
@@ -120,6 +123,7 @@ export default {
 .percentage{
   font-size: 4vw;
   color: red;
+  padding-top: 1vw;
 }
 
 
@@ -182,8 +186,8 @@ export default {
   position: relative;
 }
 .answer.active{
-  border: 1px solid darkgreen;
-  background-color: seagreen;
+  border: 2px solid #0E7B0E;
+  background-image: radial-gradient( #70C575 1%, #24A824 99%);;
   color: white;
   height: 11vw;
   padding-left: 3vw;
@@ -226,13 +230,13 @@ export default {
 }
 
 .design:before {
-  background: blue;
+  background: var(--radial-background-color);
   opacity: 0;
   transition: .3s;
 }
 
 .design::after {
-  background: blue;
+  background: var(--radial-background-color);
   opacity: .4;
   transition: .6s;
 }
@@ -256,12 +260,12 @@ input:checked+.design::before {
 /* other states */
 /*input:hover+.design,*/
 input:focus+.design {
-  border: 1px solid blue;
+  border: 1px solid var(--radial-background-color);
 }
 
 /*input:hover+.design:before,*/
 input:focus+.design:before {
-  background: blue;
+  background: var(--radial-background-color);
 }
 
 /*input:hover~.text {
@@ -281,7 +285,7 @@ input:active+.design::after {
   margin: 0 auto;
 }
 .submit_button{
-  background-color: #417310;
+  background-color: var(--submit-button-background-color);
   border: 1px solid black;
   width: 16vw;
   height: 7vw;
@@ -303,6 +307,11 @@ input:active+.design::after {
 .wrong{
   color: red;
 }
+
+.average_result{
+  padding-top: 1vw;
+}
+
 
 /*
   ************************************************************************
@@ -364,7 +373,8 @@ input:active+.design::after {
 @media screen and (min-width: 1024px){
   .quiz_title{
     font-size: var(--desktop-font-size);
-    /*text-align: center;*/
+    padding-left: 0;
+    padding-top: 1vw;
     width: 67vw;
     max-width: 1024px;
   }
@@ -377,8 +387,8 @@ input:active+.design::after {
     box-shadow: var(--desktop-box-shadow);
   }
   .banner{
-    font-size: 1vw;
-    padding: 1vw 2vw 0.5vw 2vw;
+    font-size: var(--desktop-fixed-banner-title);
+    padding: 1vw 2vw 1vw 2vw;
   }
   .answer{
     font-size: 1vw;
@@ -388,21 +398,23 @@ input:active+.design::after {
     height: 0.8vw;
   }
   .text{
+    font-size: var(--desktop-text-font-size);
     margin-left: 1.5vw;
   }
   .question{
     font-size: var(--desktop-question-font-size);
-    padding: 1vw 3vw 1vw 2vw;
+    padding: 1vw 3vw 2vw 2vw;
   }
   .answers{
-    padding-bottom: 0.5vw;
-    padding-left: 3.5vw;
+    padding-bottom: 1.2vw;
+    padding-left: 3.2vw;
   }
   .answers:last-child .answer {
     margin-bottom: 1.5vw;
   }
   .results_container{
-    font-size: 1vw;
+    font-size: 1.5vw;
+    padding-top: 1vw;
   }
   .percentage{
     font-size: 1.5vw;
@@ -416,6 +428,7 @@ input:active+.design::after {
   .rightWrong{
     top: -2vw;
     right: 1.5vw;
+    font-size: 0.9vw;
   }
   .submit_button{
     width: 5vw;
