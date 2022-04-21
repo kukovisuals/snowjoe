@@ -3,7 +3,7 @@
   <div class="quiz_container">
 
     <div class="quiz_title_component">
-      <h4 class="quiz_title"> {{title}} </h4>
+      <p class="quiz_title"> {{title}} </p>
     </div>
     <QuestionComponent/>
 

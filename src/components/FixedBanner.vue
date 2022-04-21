@@ -1,6 +1,6 @@
 <template>
   <div class="fixed_banner">
-    <h4 class="banner">Quiz Application</h4>
+    <p class="banner">Quiz Application</p>
   </div>
 </template>
 

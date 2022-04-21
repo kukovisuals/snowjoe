@@ -18,18 +18,43 @@ export default {
   margin: 0;
 }
 :root {
+  --app-background-color:#F4F6F8;
+  --app-color: #2C3F51;
+
   --main-font-size: 3vw;
-  --desktop-font-size: 2vw;
+  --fixed-banner-Background: #870607;
+  --fixed-banner-title: 4vw;
+  --quiz-title-font-size: 5vw;
+
+  --question-answers-background-color: #FEFFFE;
+  --question-answers-box-shadow:-0.2vw 0.4vw 1vw #B3B3B3;
+  --question-font-size: 4vw;
+  --question-letter-spacing: 0.1vw;
+  --text-font-family: Arial;
+  --text-font-size: 3.5vw;
+
+
+  --table-banner-title: 3.3vw;
+  --table-banner-font-size: 2.5vw;
+  --tablet-text-font-size: 2vw;
+  --table-question-font-size: 2.3vw;
+  --table-question-answers-box-shadow:-0.1vw 0.2vw 0.5vw #B3B3B3;
+
+  --desktop-fixed-banner-title: 4vw;
+  --desktop-font-size: 2.8vw;
+  --desktop-question-font-size: 1.5vw;
+  --desktop-quesiton-answers-margin: 0 auto;
+  --desktop-box-shadow: 0vw 0.2vw 0.3vw #B3B3B3;
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*text-align: center;*/
-  color: #2c3e50;
+
+  color: var(--app-color);
   padding: 0;
-  background-color: #F4F6F8;
+  background-color: var(--app-background-color);
 }
 
 
@@ -50,25 +75,25 @@ export default {
 
 
 /*
-  ************************************************************************
+  *****************************************************************
   FixedBanner Kuko Visuals
-  ************************************************************************
+  *****************************************************************
 */
 
 .fixed_banner{
-  background-color: #781616;
+  background-color: var(--fixed-banner-Background);
 }
 .banner{
   padding: 4vw 10vw;
   color: #FFFFFF;
-  font-size: 4vw;
+  font-size: var(--fixed-banner-title);
 }
 
 
 /*
-  ************************************************************************
+  *****************************************************************
   QuizComponent Kuko Visuals
-  ************************************************************************
+  *****************************************************************
 */
 
 .quiz_title{
@@ -76,13 +101,13 @@ export default {
   padding-top: 3vw;
   width: 90%;
   margin: 0 auto;
-  font-size: 5vw;
+  font-size: var(--quiz-title-font-size);
 }
 
 /*
-  ************************************************************************
+  *****************************************************************
   ResultsComponent Kuko Visuals
-  ************************************************************************
+  *****************************************************************
 */
 
 .results_container{
@@ -107,8 +132,8 @@ export default {
 .question_answers{
   width: 90%;
   margin: 0 auto;
-  background-color: #FFFFFF ;
-  box-shadow: -0.5vw 0.5vw 2vw gray;
+  background-color: var(--question-answers-background-color);
+  box-shadow: var(--question-answers-box-shadow);
   /*border: 1px solid black;*/
   border-radius: 2vw;
   margin-top: 5vw;
@@ -126,7 +151,8 @@ export default {
 .question{
   /*border: 1px solid blue;*/
   padding: 5vw 6vw 4vw 7vw;
-  font-size: 3.9vw;
+  /*letter-spacing: var(--question-letter-spacing);*/
+  font-size: var(--question-font-size);
 }
 .answers{
   padding-left: 12vw;
@@ -145,7 +171,7 @@ export default {
 
 .answer{
   /*padding-left: 2.6vw;*/
-  font-size: 3.9vw;
+  /*font-size: 3.9vw;*/
 
   display: flex;
   justify-content: flex-start;
@@ -215,6 +241,8 @@ export default {
   color: inherit;
   /*font-weight: bold;*/
   margin-left: 7vw;
+  font-size: var(--text-font-size);
+  font-family: var(--text-font-family);
 }
 
 
@@ -284,13 +312,21 @@ input:active+.design::after {
 
 @media screen and (min-width: 700px){
   .quiz_title{
-    font-size: var(--main-font-size);
+    font-size: var(--table-banner-title);
+    padding-left: 11vw;
   }
   .banner{
-    font-size: var(--main-font-size);
+    font-size: var(--table-banner-font-size);
+    padding: 2.5vw 10vw;
+  }
+  .question_answers{
+    width: 86%;
+    margin: 4vw 0 0 3vw;  
+    box-shadow: var(--table-question-answers-box-shadow);
   }
   .question{
-    font-size: 2.5vw;
+    font-size: var(--table-question-font-size);
+    padding: 3vw 6vw 2.5vw 6vw;
   }
   .answer{
     font-size: 2vw;
@@ -301,12 +337,10 @@ input:active+.design::after {
   }
   .text{
     margin-left: 4vw;
-  }
-  .question{
-    padding: 3vw 6vw 2.5vw 6vw;
+    font-size: var(--tablet-text-font-size);
   }
   .answers{
-    padding-bottom: 1.3vw;
+    padding-bottom: 2vw;
     padding-left: 9vw;
   }
   .results_container{
@@ -337,9 +371,10 @@ input:active+.design::after {
   .question_answers{
     width: 67vw;
     max-width: 1024px;
-    margin-top: 1.5vw;
+    margin: var(--desktop-quesiton-answers-margin);
+    margin-top: 2.5vw;
     border-radius: 1vw;
-    box-shadow: -0.3vw 0.3vw 0.5vw grey;
+    box-shadow: var(--desktop-box-shadow);
   }
   .banner{
     font-size: 1vw;
@@ -356,7 +391,7 @@ input:active+.design::after {
     margin-left: 1.5vw;
   }
   .question{
-    font-size: 1vw;
+    font-size: var(--desktop-question-font-size);
     padding: 1vw 3vw 1vw 2vw;
   }
   .answers{
