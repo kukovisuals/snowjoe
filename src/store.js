@@ -28,6 +28,7 @@ export const store = createStore({
     }, 
     resultsRatio(state){
       for(const i in state.questions){
+        console.log(state.questions[i])
         state.correctObj[i] = state.questions[i].correct_answer
         // console.log('iii',state.questions[i].correct_answer,  state.storeObj[i][0] )
         if(state.questions[i].correct_answer === state.storeObj[i][0]){

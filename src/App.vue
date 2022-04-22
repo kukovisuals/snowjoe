@@ -18,10 +18,16 @@ export default {
   margin: 0;
 }
 :root {
+  --form-control-color: #2C8DFE;
+
   --app-background-color:#F4F6F8;
   --app-color: #2C3F51;
   --radial-background-color: #0186F5;
-  --submit-button-background-color: #1C590B;
+  --submit-button-background-color: #1a6a04;
+
+  --yellow-border-color: #ddc928;
+  --green-border-color: green;
+  --red-border-color: red;
 
   --main-font-size: 3vw;
   --fixed-banner-Background: #870607;
@@ -29,25 +35,31 @@ export default {
   --quiz-title-font-size: 5vw;
 
   --question-answers-background-color: #FEFFFE;
-  --question-answers-box-shadow:-0.2vw 0.4vw 1vw #B3B3B3;
+  --question-answers-box-shadow:0vw 0.4vw 1vw #8b8989;
   --question-font-size: 4vw;
   --question-letter-spacing: 0.1vw;
   --text-font-family: Arial;
   --text-font-size: 3.5vw;
 
 
-  --table-banner-title: 3.3vw;
-  --table-banner-font-size: 2.5vw;
-  --tablet-text-font-size: 2vw;
-  --table-question-font-size: 2.3vw;
+  --table-banner-title: 3vw;
+  --table-banner-font-size: 2.3vw;
+  --tablet-text-font-size: 1.9vw;
+  --table-question-font-size: 2vw;
   --table-question-answers-box-shadow:-0.1vw 0.2vw 0.5vw #B3B3B3;
 
   --desktop-fixed-banner-title: 1vw;
   --desktop-font-size: 2.1vw;
-  --desktop-question-font-size: 1.2vw;
+  --desktop-question-font-size: 1vw;
   --desktop-text-font-size: 1.1vw;
   --desktop-quesiton-answers-margin: 0 auto;
-  --desktop-box-shadow: 0vw 0.2vw 0.3vw #B3B3B3;
+  --desktop-box-shadow: 0vw 0.1vw 0.2vw #B3B3B3;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 #app {
@@ -114,11 +126,14 @@ export default {
 */
 
 .results_container{
-  width: 43%;
+  width: 60%;
   margin: 0 auto;
   font-size: 3.5vw;
   padding-top: 4vw;
   text-align: center;
+}
+.results{
+  text-decoration: underline;
 }
 .percentage{
   font-size: 4vw;
@@ -143,29 +158,30 @@ export default {
   margin-top: 5vw;
 }
 .question_answers.active{
-  border: 1px solid #BDAB1D;
+  border: 3px solid var(--yellow-border-color);
   
 }
 .question_answers.gotCorrect{
-  border: 1px solid green;
+  border: 3px solid var(--green-border-color);
 }
 .question_answers.gotWrong{
-  border: 1px solid red;
+  border: 3px solid var(--red-border-color);
 }
 .question{
   /*border: 1px solid blue;*/
-  padding: 5vw 6vw 4vw 7vw;
+  padding: 5vw 10vw 4vw 7vw;
   /*letter-spacing: var(--question-letter-spacing);*/
   font-size: var(--question-font-size);
 }
 .answers{
-  padding-left: 12vw;
+  padding-left: 7vw;
   padding-bottom: 2.5vw;
-  width: 70%;
-  display: flex;
+  width: 88%;
+  position: relative;
+  /*display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
+  */
 }
 .answers:last-child .answer{
   margin-bottom: 4vw;
@@ -174,109 +190,108 @@ export default {
 
 
 .answer{
-  /*padding-left: 2.6vw;*/
-  /*font-size: 3.9vw;*/
-
+  display: -webkit-inline-box;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  /*margin: 2vw 0;*/
-  cursor: pointer;
+  color: inherit;
+  margin-left: 5vw;
+  font-size: var(--text-font-size);
+  font-family: var(--text-font-family);
+}
+
+.activediv{
   position: relative;
 }
-.answer.active{
-  border: 2px solid #0E7B0E;
-  background-image: radial-gradient( #70C575 1%, #24A824 99%);;
+.activediv.activeAnswer{
+  border: 3px solid #0E7B0E;
+  background-image: radial-gradient( #26a52f, #0a8f20);
   color: white;
   height: 11vw;
   padding-left: 3vw;
-  margin-left: -4vw;
+  margin-left: -3vw;
   border-radius: 2vw;
 }
-.radio_input{
-  opacity: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
 
-.design{
-  width: 3vw;
-  height: 3vw;
-
-  border: 1px solid #000000;
-  border-radius: 100%;
-  margin-right: 2vw;
-
-  position: absolute;
-}
-
-.design::before,
-.design::after {
-  content: "";
-  display: block;
-
-  width: inherit;
-  height: inherit;
-
-  border-radius: inherit;
-
-  position: absolute;
-  transform: scale(0);
-  transform-origin: center center;
-}
-
-.design:before {
-  background: var(--radial-background-color);
-  opacity: 0;
-  transition: .3s;
-}
-
-.design::after {
-  background: var(--radial-background-color);
-  opacity: .4;
-  transition: .6s;
-}
-/* .text */
 .text {
   color: inherit;
-  /*font-weight: bold;*/
   margin-left: 7vw;
   font-size: var(--text-font-size);
   font-family: var(--text-font-family);
 }
 
+.activeAnswer input[type="radio"]{
+  top: 25%;
+}
+.activeAnswer .answer{
+  top: 25%;
+  position: relative;
+}
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  cursor: pointer;
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  border: 1px solid #999999;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 3.15vw;
+  height: 3.15vw;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  bottom: 1vw;
+}
 
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+input[type="radio"]:checked  {
+  border: 1px solid var(--form-control-color);
+}
 /* checked state */
-input:checked+.design::before {
+/*input:checked+.design::before {
   opacity: 1;
   transform: scale(.6);
-}
+}*/
 
 
 /* other states */
 /*input:hover+.design,*/
-input:focus+.design {
+/*input:focus+.design {
   border: 1px solid var(--radial-background-color);
-}
+}*/
 
 /*input:hover+.design:before,*/
-input:focus+.design:before {
+/*input:focus+.design:before {
+
+  border-color: 1px solid var(--radial-background-color);
   background: var(--radial-background-color);
-}
+}*/
 
 /*input:hover~.text {
   color: blue;
 }*/
 
-input:focus+.design::after,
+/*input:focus+.design::after,
 input:active+.design::after {
   opacity: .1;
   transform: scale(1);
-}
+}*/
 
 
 .button_container{
@@ -286,12 +301,13 @@ input:active+.design::after {
 }
 .submit_button{
   background-color: var(--submit-button-background-color);
-  border: 1px solid black;
+  border: 2.5px solid black;
   width: 16vw;
   height: 7vw;
   color: #FFF;
   cursor: pointer;
   border-radius: 1vw;
+  font-size:2.5vw;
 }
 
 .rightWrong{
@@ -299,6 +315,7 @@ input:active+.design::after {
   top: -6vw;
   position: relative;
   right: 3vw;
+  font-size: 2vw;
 }
 
 .correct{
@@ -309,7 +326,7 @@ input:active+.design::after {
 }
 
 .average_result{
-  padding-top: 1vw;
+  padding-top: 4vw;
 }
 
 
@@ -322,11 +339,12 @@ input:active+.design::after {
 @media screen and (min-width: 700px){
   .quiz_title{
     font-size: var(--table-banner-title);
-    padding-left: 11vw;
+    padding-left: 3vw;
+    padding-top: 2vw;
   }
   .banner{
     font-size: var(--table-banner-font-size);
-    padding: 2.5vw 10vw;
+    padding: 2.5vw 7vw;
   }
   .question_answers{
     width: 86%;
@@ -335,34 +353,55 @@ input:active+.design::after {
   }
   .question{
     font-size: var(--table-question-font-size);
-    padding: 3vw 6vw 2.5vw 6vw;
+    padding: 3vw 6vw 2.5vw 4.2vw;
   }
   .answer{
-    font-size: 2vw;
+    font-size: var(--tablet-text-font-size);
+    margin-left: 3.5vw;
   }
   .design{
     width: 1.8vw;
     height: 1.8vw;
   }
-  .text{
-    margin-left: 4vw;
-    font-size: var(--tablet-text-font-size);
-  }
+
   .answers{
     padding-bottom: 2vw;
-    padding-left: 9vw;
+    padding-left: 4vw;
+  }
+  .activediv.activeAnswer {
+    height: 5vw;
+    padding-left: 1vw;
+    margin-left: -1vw;
+    border-radius: 1.2vw;
   }
   .results_container{
-    font-size: 2.5vw;
+    font-size: 2.4vw;
+    padding-top: 3vw;
+  }
+  .average_result{
+    padding-top: 2.5vw;
   }
   .percentage{
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
+  input[type="radio"] {
+    border: 1px solid #999999;
+    bottom: 0vw;
+    width: 2.15vw;
+    height: 2.15vw;
+  }
+
   .answer.active{
     height: 4.5vw;
   }
   .rightWrong{
     top: -4vw;
+    font-size: 1.5vw;
+  }
+  .submit_button {
+    width: 11vw;
+    height: 5vw;
+    font-size: 1.5vw;
   }
 }
 /*
@@ -370,28 +409,29 @@ input:active+.design::after {
   Desktop Kuko Visuals
   ************************************************************************
 */
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1224px){
   .quiz_title{
     font-size: var(--desktop-font-size);
     padding-left: 0;
-    padding-top: 1vw;
-    width: 67vw;
-    max-width: 1024px;
+    padding-top: 0vw;
+    width: 76vw;
+    max-width: 1500px;
   }
   .question_answers{
     width: 67vw;
-    max-width: 1024px;
+    max-width: 1500px;
     margin: var(--desktop-quesiton-answers-margin);
-    margin-top: 2.5vw;
-    border-radius: 1vw;
+    margin-top: 1.5vw;
+    border-radius: 0.5vw;
     box-shadow: var(--desktop-box-shadow);
   }
   .banner{
     font-size: var(--desktop-fixed-banner-title);
-    padding: 1vw 2vw 1vw 2vw;
+    padding: 10px 20px 18px;
   }
   .answer{
     font-size: 1vw;
+    margin-left: 1.6vw;
   }
   .design{
     width: 0.8vw;
@@ -403,21 +443,44 @@ input:active+.design::after {
   }
   .question{
     font-size: var(--desktop-question-font-size);
-    padding: 1vw 3vw 2vw 2vw;
+    padding: 1.5vw 9vw 1.3vw 2vw;
+  }
+  input[type="radio"] {
+    border: 1px solid #999999;
+    bottom: 0.1vw;
+    width: 1.15vw;
+    height: 1.15vw;
+  }
+  .activediv.activeAnswer {
+    border: 3.5px solid #067406;
+    height: 2.5vw;
+    padding-left: 0.7vw;
+    margin-left: -1vw;
+    border-radius: 0.5vw;
+  }
+  .question_answers.gotWrong {
+    border: 3px solid var(--red-border-color);
+  }
+  .question_answers.gotCorrect {
+    border: 3px solid var(--green-border-color);
   }
   .answers{
     padding-bottom: 1.2vw;
-    padding-left: 3.2vw;
+    padding-left: 3.5vw;
   }
   .answers:last-child .answer {
     margin-bottom: 1.5vw;
   }
   .results_container{
-    font-size: 1.5vw;
+    font-size: 1.6vw;
     padding-top: 1vw;
+  }
+  .average_result {
+    padding-top: 1.6vw;
   }
   .percentage{
     font-size: 1.5vw;
+    padding-top: 1vw;
   }
   .answer.active{
     height: 2.5vw;
@@ -434,6 +497,16 @@ input:active+.design::after {
     width: 5vw;
     height: 3vw;
     border-radius: 0.5vw;
+    font-size:1vw;
+  }
+  .button_container {
+    padding: 1.3vw 3vw 2vw;
+    width: 11%;
+    margin: 0 auto;
+  }
+  .error_message {
+    font-size: 0.9vw;
+    font-weight: 600;
   }
 }
 </style>

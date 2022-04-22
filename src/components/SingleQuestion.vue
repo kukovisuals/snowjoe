@@ -16,10 +16,9 @@
           class="answers" 
           v-for="(choice) in quiz.choices"
           :key="choice"
-        >    
-          <label 
-          class="answer"
-          >  
+        >   
+          <div class="activediv">
+            
             <input
               ref="myChoice"  
               class="radio_input" 
@@ -29,10 +28,11 @@
               :value="choice" 
               @input="getChoice"
             >
-            <span class="design"></span>
-            <span class="text">{{choice}} </span>
-            
-          </label>
+            <label  class="answer" >  
+            <!-- <span class="design"></span> -->
+            {{choice}} 
+            </label>
+          </div> 
        
         </div>
         <div v-if="buttonClicked" class="rightWrong">
@@ -99,12 +99,9 @@ export default {
       const b = Object.keys(this.$store.state.storeObj)
       
       let unAnswered = this.difference(new Set(a), new Set(b))
-      
-      // console.log(a,b, unAnswered)
     
       this.diff = unAnswered
 
-      // console.log('dif', this.diff)
       return this.diff
     },
     difference(setA, setB) {
@@ -120,12 +117,13 @@ export default {
 
       const loopAnswers = this.$refs.myChoice
 
-      if(objLen.length > 0){
+      if(objLen.length > 0 && (this.$store.state.len === this.$store.state.quizLen) ){
         this.$store.commit('resultsRatio')
       }
       
       
       for(const [key, el] of childs){
+        // console.log(objLen, this.diff, key)
         if(this.diff.has(key)){
           el.classList.add("active");
         }
@@ -134,7 +132,7 @@ export default {
         const upper = lower + 5
 
         if((this.$store.state.len === this.$store.state.quizLen) && (this.$store.state.len > key)){
-          console.log('err,', this.$store.state.len, key)
+          // console.log('err,', this.$store.state.len, key)
           if(this.$store.state.questions[key].correct_answer === this.$store.state.storeObj[key][0]){
             
             el.classList.add("gotCorrect");
@@ -152,8 +150,8 @@ export default {
             
             for(const reference of newReferenceAnswers){
               if(reference.value === this.$store.state.correctObj[key]){
-                // console.log('submit', reference.parentNode)
-                reference.parentNode.classList.add('active')
+                // console.log('submit', reference.nextSibling)
+                reference.parentNode.classList.add('activeAnswer')
               }
               
             }
@@ -162,6 +160,7 @@ export default {
           
         }
       }
+
 
     }
   }
