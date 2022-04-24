@@ -1,5 +1,5 @@
-# snowjoe
-
+# snowjoe Quiz app
+![GitHub Logo](/image/screenshot.png)
 ## Project setup
 ```
 npm install
