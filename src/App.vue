@@ -31,8 +31,8 @@ export default {
 
   --main-font-size: 3vw;
   --fixed-banner-Background: #870607;
-  --fixed-banner-title: 4vw;
-  --quiz-title-font-size: 5vw;
+  --fixed-banner-title: 5vw;
+  --quiz-title-font-size: 6vw;
 
   --question-answers-background-color: #FEFFFE;
   --question-answers-box-shadow:0vw 0.4vw 1vw #8b8989;
@@ -48,8 +48,8 @@ export default {
   --table-question-font-size: 2vw;
   --table-question-answers-box-shadow:-0.1vw 0.2vw 0.5vw #B3B3B3;
 
-  --desktop-fixed-banner-title: 1vw;
-  --desktop-font-size: 2.1vw;
+  --desktop-fixed-banner-title: 1.2vw;
+  --desktop-font-size: 2.6vw;
   --desktop-question-font-size: 1vw;
   --desktop-text-font-size: 1.1vw;
   --desktop-quesiton-answers-margin: 0 auto;
@@ -72,6 +72,9 @@ export default {
   background-color: var(--app-background-color);
 }
 
+.quiz_questions_container{
+  padding-bottom: 7vw;
+}
 
 /*
   ************************************************************************
@@ -112,7 +115,7 @@ export default {
 */
 
 .quiz_title{
-  line-height: 5vw;
+  /*line-height: 5vw;*/
   padding-top: 3vw;
   width: 90%;
   margin: 0 auto;
@@ -126,9 +129,9 @@ export default {
 */
 
 .results_container{
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
-  font-size: 3.5vw;
+  font-size: 5vw;
   padding-top: 4vw;
   text-align: center;
 }
@@ -136,9 +139,9 @@ export default {
   text-decoration: underline;
 }
 .percentage{
-  font-size: 4vw;
+  font-size: 5vw;
   color: red;
-  padding-top: 1vw;
+  padding-top: 3vw;
 }
 
 
@@ -205,9 +208,9 @@ export default {
   border: 3px solid #0E7B0E;
   background-image: radial-gradient( #26a52f, #0a8f20);
   color: white;
-  height: 11vw;
+  height: 9vw;
   padding-left: 3vw;
-  margin-left: -3vw;
+  margin-left: -4.2vw;
   border-radius: 2vw;
 }
 
@@ -219,10 +222,10 @@ export default {
 }
 
 .activeAnswer input[type="radio"]{
-  top: 25%;
+  top: 29%;
 }
 .activeAnswer .answer{
-  top: 25%;
+  top: 22%;
   position: relative;
 }
 input[type="radio"] {
@@ -238,19 +241,19 @@ input[type="radio"] {
   margin: 0;
   font: inherit;
   color: currentColor;
-  width: 3.15vw;
-  height: 3.15vw;
+  width: 3vw;
+  height: 3vw;
   border-radius: 50%;
   transform: translateY(-0.075em);
   display: grid;
   place-content: center;
-  bottom: 1vw;
+  bottom: 0.5vw;
 }
 
 input[type="radio"]::before {
   content: "";
-  width: 0.65em;
-  height: 0.65em;
+  width: 0.3em;
+  height: 0.3em;
   border-radius: 50%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
@@ -263,40 +266,10 @@ input[type="radio"]:checked::before {
 input[type="radio"]:checked  {
   border: 1px solid var(--form-control-color);
 }
-/* checked state */
-/*input:checked+.design::before {
-  opacity: 1;
-  transform: scale(.6);
-}*/
-
-
-/* other states */
-/*input:hover+.design,*/
-/*input:focus+.design {
-  border: 1px solid var(--radial-background-color);
-}*/
-
-/*input:hover+.design:before,*/
-/*input:focus+.design:before {
-
-  border-color: 1px solid var(--radial-background-color);
-  background: var(--radial-background-color);
-}*/
-
-/*input:hover~.text {
-  color: blue;
-}*/
-
-/*input:focus+.design::after,
-input:active+.design::after {
-  opacity: .1;
-  transform: scale(1);
-}*/
-
 
 .button_container{
   padding: 5vw;
-  width: 16%;
+  width: 26%;
   margin: 0 auto;
 }
 .submit_button{
@@ -348,8 +321,9 @@ input:active+.design::after {
   }
   .question_answers{
     width: 86%;
-    margin: 4vw 0 0 3vw;  
+    margin: 3vw 0 0 3vw;  
     box-shadow: var(--table-question-answers-box-shadow);
+    border-radius: 1vw;
   }
   .question{
     font-size: var(--table-question-font-size);
@@ -357,7 +331,7 @@ input:active+.design::after {
   }
   .answer{
     font-size: var(--tablet-text-font-size);
-    margin-left: 3.5vw;
+    margin-left: 3vw;
   }
   .design{
     width: 1.8vw;
@@ -371,8 +345,11 @@ input:active+.design::after {
   .activediv.activeAnswer {
     height: 5vw;
     padding-left: 1vw;
-    margin-left: -1vw;
+    margin-left: -1.4vw;
     border-radius: 1.2vw;
+  }
+  .activeAnswer .answer{
+    top: 27%;
   }
   .results_container{
     font-size: 2.4vw;
@@ -383,20 +360,29 @@ input:active+.design::after {
   }
   .percentage{
     font-size: 2.5vw;
+    padding-top: 1.2vw;
+  }
+  .activeAnswer input[type="radio"] {
+    top: 33%;
   }
   input[type="radio"] {
     border: 1px solid #999999;
-    bottom: 0vw;
-    width: 2.15vw;
-    height: 2.15vw;
+    bottom: 0.3vw;
+    width: 1.6vw;
+    height: 1.6vw;
+  }
+  input[type="radio"]::before{
+    width: 0.45em;
+    height: 0.45em;
   }
 
   .answer.active{
     height: 4.5vw;
   }
   .rightWrong{
-    top: -4vw;
+    top: -3.2vw;
     font-size: 1.5vw;
+    right: 1.5vw;
   }
   .submit_button {
     width: 11vw;
@@ -413,12 +399,12 @@ input:active+.design::after {
   .quiz_title{
     font-size: var(--desktop-font-size);
     padding-left: 0;
-    padding-top: 0vw;
+    padding-top: 1vw;
     width: 76vw;
     max-width: 1500px;
   }
   .question_answers{
-    width: 67vw;
+    width: 76vw;
     max-width: 1500px;
     margin: var(--desktop-quesiton-answers-margin);
     margin-top: 1.5vw;
@@ -431,7 +417,7 @@ input:active+.design::after {
   }
   .answer{
     font-size: 1vw;
-    margin-left: 1.6vw;
+    margin-left: 1.8vw;
   }
   .design{
     width: 0.8vw;
@@ -445,15 +431,27 @@ input:active+.design::after {
     font-size: var(--desktop-question-font-size);
     padding: 1.5vw 9vw 1.3vw 2vw;
   }
+
+  .activeAnswer .answer{
+    top: 32%;
+  }
+  .activeAnswer input[type="radio"] {
+    top: 33%;
+  }
   input[type="radio"] {
     border: 1px solid #999999;
     bottom: 0.1vw;
-    width: 1.15vw;
-    height: 1.15vw;
+    width: 1vw;
+    height: 1vw;
+  }
+
+  input[type="radio"]::before{
+    width: 0.8em;
+    height: 0.8em;
   }
   .activediv.activeAnswer {
     border: 3.5px solid #067406;
-    height: 2.5vw;
+    height: 3.3vw;
     padding-left: 0.7vw;
     margin-left: -1vw;
     border-radius: 0.5vw;
@@ -466,21 +464,21 @@ input:active+.design::after {
   }
   .answers{
     padding-bottom: 1.2vw;
-    padding-left: 3.5vw;
+    padding-left: 4vw;
   }
   .answers:last-child .answer {
     margin-bottom: 1.5vw;
   }
   .results_container{
-    font-size: 1.6vw;
+    font-size: 1.9vw;
     padding-top: 1vw;
   }
   .average_result {
     padding-top: 1.6vw;
   }
   .percentage{
-    font-size: 1.5vw;
-    padding-top: 1vw;
+    font-size: 2vw;
+    padding-top: 0.7vw;
   }
   .answer.active{
     height: 2.5vw;
@@ -489,9 +487,9 @@ input:active+.design::after {
     border-radius: 0.5vw;
   }
   .rightWrong{
-    top: -2vw;
-    right: 1.5vw;
-    font-size: 0.9vw;
+    top: -2.3vw;
+    right: 0.8vw;
+    font-size: 1vw;
   }
   .submit_button{
     width: 5vw;

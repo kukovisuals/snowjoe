@@ -5,7 +5,6 @@
   >
     <p class="error_message">
       Answer all questions before submitting. Unanswered questions are displayed in yellow.
-      }
     </p>
   </div>
 </template>
