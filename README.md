@@ -1,13 +1,18 @@
 # snowjoe Quiz app
 ![GitHub Logo](/image/screenshot.png)
+
+- There is a data folder with json data where the app is pulling the data from
+
+- If Answers are incomplete show a message and highlight the questions that need to be finished
+
+- If answer are completed but some are incorrect show the correct ones in green and incorrect in red plus highlight the correct one on a green box
+
+- calcualte the percentage of the result and display to user
+
+
 ## Project setup
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
 ```
 
 ### Compiles and minifies for production
